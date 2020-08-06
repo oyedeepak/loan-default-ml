@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>Fraud Check</title>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+  </head>
+<body>
+    <h3>Fraud Detection</h3>
+
+<div>
+  <form action="{{ url_for('predict')}}"method="POST">
+    <label for="State">State</label>
+    <select id="State" name="State">
+		<option value="0">Alaska</option>
+        <option value="1">Albama</option>
+        <option value="2">Arkansas</option>
+        <option value="3">Arizona</option>
+        <option value="4">California</option>
+        <option value="5">Colorado</option>
+        <option value="6">Connecticut</option>
+        <option value="7">Washington, DC</option>
+        <option value="8">Delware</option>
+        <option value="9">Florida</option>
+        <option value="10">Georgia</option>
+        <option value="11">Hawaii</option>
+        <option value="12">Iowa</option>
+        <option value="13">Idaho</option>
+        <option value="14">Illinois</option>
+        <option value="15">Indiana</option>
+        <option value="16">Kansas</option>
+        <option value="17">Kentucky</option>
+        <option value="18">Louisiana</option>
+        <option value="19">Massachusetts</option>
+        <option value="20">Maryland</option>
+        <option value="21">Maine</option>
+        <option value="22">Michigan</option>
+        <option value="23">Minnesota</option>
+        <option value="24">Missouri</option>
+        <option value="25">Mississippi</option>
+        <option value="26">Montana</option>
+        <option value="27">North Carolina</option>
+        <option value="28">North Dakota</option>
+        <option value="29">Nebraska</option>
+        <option value="30">New Hampshire</option>
+        <option value="31">New Jersey</option>
+        <option value="32">New Mexico</option>
+        <option value="33">Nevada</option>
+        <option value="34">New York</option>
+        <option value="35">Ohio</option>
+        <option value="36">Oklahoma</option>
+        <option value="37">Oregon</option>
+        <option value="38">Pennsylvania</option>
+        <option value="39">Rhode Island</option>
+        <option value="40">South Carolina</option>
+        <option value="41">South Dakota</option>
+        <option value="42">Tennessee</option>
+        <option value="43">Texas</option>
+        <option value="44">Utah</option>
+        <option value="45">Virginia</option>
+        <option value="46">Vermount</option>
+        <option value="47">Washington</option>
+        <option value="48">Wisconsin</option>
+        <option value="49">West Virginia</option>
+        <option value="50">Wyoming</option>
+    </select>
+    <br>
+    <label for="NAICS">NAICS</label>
+    <select id="NAICS" name="NAICS">
+        <option value="0">Accomodation & Food Services</option>
+        <option value="1">Administrative and Support, Waste Management & Remediation Services</option>
+        <option value="2">Agriculture, Forestry, Fishing & Hunting</option>
+        <option value="3">Arts, Entertainment & Recreation</option>
+        <option value="4">Construction</option>
+        <option value="5">Educational</option>
+        <option value="6">Finance & Insurance</option>
+        <option value="7">Health Care & Social Assistance</option>
+        <option value="8">Information</option>
+        <option value="9">Management of Companies and Enterprises</option>
+        <option value="10">Manufacturing</option>
+        <option value="11">Mining</option>
+        <option value="12">Other Services (except Public Administration)</option>
+        <option value="13">Professional, Scientific & Technical Services</option>
+        <option value="14">Public Administration</option>
+        <option value="15">Real Estate, Rental & Leasing</option>
+        <option value="16">Retail trade</option>
+        <option value="17">Transportation & Warehousing</option>
+        <option value="18">Unknown</option>
+        <option value="19">Utilities</option>
+        <option value="20">Wholesale trade</option>
+    </select>
+    <br>
+    <label for="NoEmp">Number of Employees</label>
+    <input type="text" id="NoEmp" name="NoEmp">
+    <br>
+    <label for="NewExist">New Company</label>
+    <select id="NewExist" name="NewExist">
+        <option value="1">No</option>
+        <option value="0">Yes</option>
+    </select>
+    <br>
+    <label for="RevLineCr">Revolving Line of Credit</label>
+    <select id="RevLineCr" name="RevLineCr">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select>
+    <br>
+    <label for="LowDoc">Low Documents</label>
+    <select id="LowDoc" name="LowDoc">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+    </select>
+      <br>
+      <label for="GrAppv">Gross Approved($)</label>
+      <input type="text" id="GrAppv" name="GrAppv">
+      <br>
+      <label for="SBA_Appv">SBA Approved($)</label>
+      <input type="text" id="SBA_Appv" name="SBA_Appv">
+      <br>
+      <label for="Term">Term in Months</label>
+      <input type="text" id="Term" name="Term">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+        <h1> {{ prediction_text }}</h1>
+</div>
+</body>
+</html>
